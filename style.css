@@ -1,0 +1,36 @@
+*{
+    margin: 1rem;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Monaco', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: right;
+    margin-top: 2rem;
+}
+
+.titulo{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    text-shadow: #6cce11 4px 2px 2px;
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: hsl(0, 23%, 94%);
+    border-bottom: 1px solid #6cce11;
+}
+.titulo:hover{
+    color: hsl(256, 85%, 44%);
+    cursor: pointer;
+    transition: background-color 0.9s ease;
+    rotate: 360deg;
+    border: #6cce11 4px solid;
+}

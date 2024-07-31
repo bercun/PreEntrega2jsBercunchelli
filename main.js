@@ -40,16 +40,20 @@ else if (eleccion == 3) {
     carrito.splice(producto - 1, 1);
     console.log(`${deleteproduct} ${producto}`);
 }
+//* Mostrar el carrito
 else if (eleccion == 4) {
+    console.log('Productos en el carrito');
+    console.log(carrito.length);
     for (let i = 0; i < carrito.length; i++) {
-        console.log(`${i + 1} ${carrito[i].nombre}`);
+        console.log(`${i + 1} ${carrito[i].nombre} precio ${carrito[i].precio}`);
+        
     }
 }
 else if (eleccion == 5) {
     alert(despedida);
 }
 else {
-    alert('Opción incorrecta');
+    console.log('Opción incorrecta');
 }
 }
 while (parseInt(eleccion) >0 || parseInt(eleccion) <5);
