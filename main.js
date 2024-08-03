@@ -5,7 +5,9 @@ let deleteproduct = 'se elimino producto';
 let despedida = 'Hasta la próxima';
 let eleccion = 0;
 let sumaProductos = 0; 
+
 //? Objetos
+
 
 let productos = [
     { id: 1, nombre: 'alfjores', precio: 125 },
@@ -29,16 +31,21 @@ do {
         for (let i = 0; i < productos.length; i++) {
             console.log(`${i + 1} ${productos[i].nombre}`);
         }
-        console.log('#############################################');
+        console.log('°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸');
     }
 //? Agregar producto al carrito
     else if (eleccion == 2) {
-
         let id = parseInt(prompt('Ingrese el número del producto que desea agregar al carrito'));
-        carrito.push(productos[id - 1]);
-        sumaProductos += productos[id - 1].precio;
-        console.log(`${addproduct} ${productos[id - 1].nombre}`);
-        console.log(`precio: ${productos[id - 1].precio}`);
+        let productoEnCarrito = carrito.find(item => item.id === productos[id - 1].id);
+        if (productoEnCarrito) {
+            productoEnCarrito.unidades += 1;
+        } else {
+            let producto = { ...productos[id - 1], unidades: 1 }; //? copia de un objeto
+            carrito.push(producto);
+            sumaProductos += producto.precio;
+            console.log(`${addproduct} ${producto.nombre}`);
+            console.log(`precio: ${producto.precio}`);
+        }
     }
 //? Eliminar producto del carrito    
     else if (eleccion == 3) {
@@ -69,10 +76,3 @@ do {
 
 // //! menu de opciones
 
-// <ul>
-//     <li>1 Listar los productos</li>
-//     <li>2 Agregar producto al carrito</li>
-//     <li>3 Eliminar producto del carrito</li>
-//     <li>4 Mostrar el carrito</li>
-//     <li>5 Salir</li>
-// </ul>
