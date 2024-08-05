@@ -5,7 +5,7 @@ let deleteproduct = 'se elimino producto';
 let despedida = 'Hasta la próxima';
 let eleccion = 0;
 let sumaProductos = 0; 
-
+let totalLinea = 0;
 //? Objetos
 
 
@@ -20,6 +20,7 @@ let carrito = [];
 
 
 console.log(saludos);
+console.log("°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸");
 
 //? Menu de opciones
 
@@ -31,7 +32,7 @@ do {
         for (let i = 0; i < productos.length; i++) {
             console.log(`${i + 1} ${productos[i].nombre}`);
         }
-        console.log('°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸');
+        console.log('°º¤ø,..,ø¤º°`°º¤ø,.,ø¤°º¤ø,..,ø¤º°`°º¤ø,.');
     }
 //? Agregar producto al carrito
     else if (eleccion == 2) {
@@ -39,10 +40,11 @@ do {
         let productoEnCarrito = carrito.find(item => item.id === productos[id - 1].id);
         if (productoEnCarrito) {
             productoEnCarrito.unidades += 1;
+            console.log(productoEnCarrito);
+            console.log(carrito)
         } else {
             let producto = { ...productos[id - 1], unidades: 1 }; //? copia de un objeto
             carrito.push(producto);
-            sumaProductos += producto.precio;
             console.log(`${addproduct} ${producto.nombre}`);
             console.log(`precio: ${producto.precio}`);
         }
@@ -58,9 +60,13 @@ do {
         console.log('Productos en el carrito');
         console.log(carrito.length);
         for (let i = 0; i < carrito.length; i++) {
-            console.log(`${i + 1} ${carrito[i].nombre} precio ${carrito[i].precio}`);
+            let totalLinea = carrito[i].precio * carrito[i].unidades;
+            sumaProductos += totalLinea; //? suma el precio por linea de producto
+
+            console.log(`${i + 1} ${carrito[i].nombre}\n  unidades ${carrito[i].unidades}\n precio ${carrito[i].precio}`);
+            
         }
-        console.log(`Total: ${sumaProductos} `);
+        console.log(`Total a pagar: ${sumaProductos}`);
 
     }
 //? Salir    
