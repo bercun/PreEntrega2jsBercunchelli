@@ -24,6 +24,8 @@ let productos = [
 console.log(saludos);
 console.log("°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸");
 
+
+
 //? Menu de opciones
 do {
     eleccion = parseInt(prompt('Elija una opción:\n ,.-~*´¨¯¨`*·~-.¸Opciones,.-~*´¨¯¨`*·~-.¸\n 1- Listar los productos,\n 2- Agregar producto al carrito,\n 3- Eliminar producto del carrito,\n 4- Mostrar el carrito,\n 5- Salir'));
@@ -43,6 +45,7 @@ do {
         let productoEnCarrito = carrito.find(item => item.id === productos[id - 1].id);
         if (productoEnCarrito) {
             productoEnCarrito.unidades += 1;
+            console.log(`se agrego una unidad del producto ${productoEnCarrito.nombre}`);
             // console.log(productoEnCarrito); //? muestra el producto a agregar al carrito
             // console.log(carrito)            //? muestra el carrito completo
         } else {
@@ -56,7 +59,7 @@ do {
     else if (eleccion == 3) {
         let producto = parseInt(prompt('Ingrese el número del producto que desea eliminar del carrito'));
         let articulo = carrito.find(item => item.id === productos[producto - 1].id);               //? busca el producto en el carrito
-        if (articulo && articulo.unidades > 1) {                                                   //? si el producto existe y tiene mas de una unidad
+        if (articulo && articulo.unidades > 1) {                                                   //? si el producto existe y tiene mas de una 
             articulo.unidades -= 1;                                                                //? le resta una unidad
             console.log(`se resto una unidad del producto ${articulo.nombre}`);                    //? mensaje de resta de unidad
         }                                           
